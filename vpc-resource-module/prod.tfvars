@@ -1,0 +1,11 @@
+vpc_cidr                    = "10.0.0.0/16"
+vpc_tenancy                 = "default"
+subnet_cidr                 = "10.0.1.0/24"
+subnet_availability_zone-01 = "ap-south-1a"
+subnet_cidr-01              = "10.0.2.0/24"
+subnet_availability_zone-02 = "ap-south-1b"
+private_subnet_cidr-01      = "10.0.3.0/24"
+private_subnet_cidr-02      = "10.0.4.0/24"
+instance_ami                = "ami-022d03f649d12a49d"
+instance_type               = "t2.micro"
+                 
