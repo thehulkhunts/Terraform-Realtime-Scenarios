@@ -1,5 +1,5 @@
 terraform {
-  required_version = "1.4.4"
+  required_version = "1.5.1"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -10,7 +10,5 @@ terraform {
 
 provider "aws" {
   region     = "ap-south-1"
-  access_key = "your-access-key"
-  secret_key = "your-secret-key"
-
+  shared_credentials_files = ["root/.aws/credentials"]
 }
