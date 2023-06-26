@@ -1,0 +1,41 @@
+pipeline {
+    agent any  
+    environment {
+        WORK_DIR="/var/lib/jenkins/workspace/terraform-integration-jenkins"
+    }
+    stages{
+        stage("clone"){
+            steps{
+                git 'https://github.com/thehulkhunts/Terraform-Realtime-Scenarios.git'
+            }
+        }
+        stage("initialize"){
+            steps{
+                dir("vpc-resource-module"){
+                    sh 'terraform init'
+                }
+            }
+        }
+        stage("plan"){
+            steps{
+                dir("vpc-resource-module"){
+                    sh 'terraform plan -var-file terraform.tfvars '
+                }
+            }
+        }
+        stage("apply-the-infra"){
+            steps{
+                dir("vpc-resource-module"){
+                    sh 'terraform apply -var-file prod.tfvars'
+                }
+            }
+        }
+         stage("destroy-the-infra"){
+            steps{
+                dir("vpc-resource-module"){
+                    sh 'terraform destroy -var-file prod.tfvars'
+                }
+            }
+        }
+    }
+}
