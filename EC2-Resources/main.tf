@@ -2,7 +2,7 @@ resource "aws_instance" "instance-01" {
   ami                    = var.ami-image
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.main.id]
-  user_data              = file("install_docker.sh")
+  user_data              = "${file("install_docker.sh")}"
 
 
   tags = {
