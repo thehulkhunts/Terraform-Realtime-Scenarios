@@ -26,14 +26,14 @@ pipeline {
         stage("apply-the-infra"){
             steps{
                 dir("EC2-Resources"){
-                    sh 'terraform apply -var-file terraform.tfvars'
+                    sh 'terraform apply -var-file terraform.tfvars --auto-approve '
                 }
             }
         }
      /*    stage("destroy-the-infra"){
             steps{
                 dir("EC2-Resources"){
-                    sh 'terraform destroy -var-file terraform.tfvars'
+                    sh 'terraform destroy -var-file terraform.tfvars --auto-approve'
                 }
             }
         }*/
