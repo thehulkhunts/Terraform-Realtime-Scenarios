@@ -30,12 +30,12 @@ pipeline {
                 }
             }
         }
-         stage("destroy-the-infra"){
+     /*    stage("destroy-the-infra"){
             steps{
                 dir("EC2-Resources"){
                     sh 'terraform destroy -var-file terraform.tfvars'
                 }
             }
-        }
+        }*/
     }
 }
