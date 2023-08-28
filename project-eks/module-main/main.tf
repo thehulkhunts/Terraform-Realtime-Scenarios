@@ -1,10 +1,10 @@
 provider "aws" {
   region                   = "ap-south-1"
-  shared_credentials_files = ["C:/Users/Dell/.aws/credentials"]
+  shared_credentials_files = ["/root/.aws/credentials"]
 }
 
 terraform {
-  required_version = "1.4.4"
+  required_version = "1.5.9"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
