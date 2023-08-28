@@ -22,13 +22,13 @@ module "module-vpc" {
 
 }
 
-module "module-ec2" {
+/* module "module-ec2" {
   source         = "../module-ec2"
   os             = "ami-022d03f649d12a49d"
   instance_type  = "t2.medium"
   subnet_id      = module.module-vpc.subnet-01
   security_group = module.module-sec-group.security_group
-}
+} */
 
 module "module-sec-group" {
   source = "../module-sec-group"
