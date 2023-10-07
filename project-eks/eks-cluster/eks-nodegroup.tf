@@ -17,7 +17,7 @@ resource "aws_eks_node_group" "eks-ng-01" {
   instance_types       = ["t2.medium"]
   disk_size            =  20
   force_update_version =  false
-  version              =  "1.26"
+  version              =  "1.27"
 
   labels = {
      Name = "eks-nodegroups"
