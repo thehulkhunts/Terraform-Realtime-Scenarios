@@ -4,8 +4,8 @@ resource "aws_eks_node_group" "eks-ng-01" {
   node_role_arn = var.node-role
 
   subnet_ids = [
-    var.subnet-01,
-    var.subnet-02
+    var.private-subnet-01,
+    var.private-subnet-02
   ]
   scaling_config {
     desired_size = 2
