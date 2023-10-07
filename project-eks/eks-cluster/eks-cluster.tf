@@ -1,6 +1,6 @@
 resource "aws_eks_cluster" "eks-cluster-01" {
   name = "eks-cluster-production"
-  version = "1.26"
+  version = "1.27"
   role_arn = var.eks-iam-role
 
   vpc_config {
@@ -8,8 +8,8 @@ resource "aws_eks_cluster" "eks-cluster-01" {
     endpoint_public_access = true
 
     subnet_ids = [
-        var.subnet-01,
-        var.subnet-02
+        var.private-subnet-01,
+        var.private-subnet-02
     ]
   }
   depends_on = [var.aws-iam-policy-attachment]
