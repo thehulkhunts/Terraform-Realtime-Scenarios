@@ -17,6 +17,8 @@ resource "aws_subnet" "public-subnet" {
 
   tags = {
     Name = "public-subnet-eks"
+    "kubernetes.io/cluster/eks" = "shared"
+    "kubernetes.io/role/elb" = 1
   }
 
 }
@@ -28,10 +30,33 @@ resource "aws_subnet" "subnet-02" {
   availability_zone       = "ap-south-1b"
 
   tags = {
-    Name = "public-subnet-eks-02"
+      Name = "public-subnet-eks-02"
+     "kubernetes.io/cluster/eks" = "shared"
+     "kubernetes.io/role/elb" = 1
   }
 }
+resource "aws_subnet" "private-subnet-01" {
+  vpc_id                  = aws_vpc.eks-vpc.id
+  cidr_block              = var.private_subnet_cidr_01
+  availability_zone       = "ap-south-1a"
 
+  tags = {
+      Name = "private-subnet-eks-01"
+     "kubernetes.io/cluster/eks" = "shared"
+     "kubernetes.io/role/elb" = 1
+  }
+}
+resource "aws_subnet" "private-subnet-02" {
+  vpc_id                  = aws_vpc.eks-vpc.id
+  cidr_block              = var.private_subnet_cidr_02
+  availability_zone       = "ap-south-1b"
+
+  tags = {
+      Name = "private-subnet-eks-02"
+     "kubernetes.io/cluster/eks" = "shared"
+     "kubernetes.io/role/elb" = 1
+  }
+}
 resource "aws_internet_gateway" "eks-igw" {
   vpc_id = aws_vpc.eks-vpc.id
 
