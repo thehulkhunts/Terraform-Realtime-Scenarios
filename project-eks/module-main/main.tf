@@ -44,8 +44,8 @@ module "iam-role-eks" {
 module "eks-cluster" {
   source                    = "../eks-cluster"
   eks-iam-role              = module.iam-role-eks.eks-iam-role
-  subnet-01                 = module.module-vpc.subnet-01
-  subnet-02                 = module.module-vpc.subnet-02
+  private-subnet-01         = module.module-vpc.subnet-01
+  private-subnet-02         = module.module-vpc.subnet-02
   aws-iam-policy-attachment = module.iam-role-eks.aws-iam-policy-attachment
   cluster-name              = module.eks-cluster.eks-cluster-name
   node-role                 = module.iam-role-eks.node-role
