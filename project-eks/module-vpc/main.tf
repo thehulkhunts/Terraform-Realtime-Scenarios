@@ -140,7 +140,13 @@ output "subnet-01" {
 output "subnet-02" {
   value = aws_subnet.subnet-02.id
 }
+output "private-subnet-01" {
+  value = aws_subnet.private-subnet-01.id
+}
 
+output "priuvat-subnet-02" {
+  value = aws_subnet.private-subnet-02.id
+}
 output "vpc_id" {
   value = aws_vpc.eks-vpc.id
 }
