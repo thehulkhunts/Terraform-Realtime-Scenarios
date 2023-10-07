@@ -8,8 +8,8 @@ resource "aws_eks_cluster" "eks-cluster-01" {
     endpoint_public_access = true
 
     subnet_ids = [
-        var.private-subnet-01,
-        var.private-subnet-02
+        var.subnet-01,
+        var.subnet-02
     ]
   }
   depends_on = [var.aws-iam-policy-attachment]
