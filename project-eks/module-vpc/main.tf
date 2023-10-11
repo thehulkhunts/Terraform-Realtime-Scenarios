@@ -148,7 +148,7 @@ output "private-subnet-01" {
   value = aws_subnet.private-subnet-01.id
 }
 
-output "priuvat-subnet-02" {
+output "private-subnet-02" {
   value = aws_subnet.private-subnet-02.id
 }
 output "vpc_id" {
