@@ -90,12 +90,12 @@ resource "aws_route_table_association" "eks-rt-ass-02" {
 }
 
 resource "aws_eip" "nat-01" {
-tags {
+tags= {
 Name = "eip-01"
 }
 }
 resource "aws_eip" "nat-02" {
-tags {
+tags = {
 Name = "eip-02"
 }
 }
@@ -103,14 +103,14 @@ Name = "eip-02"
 resource "aws_nat_gateway" "nat_gateway-01"{
 allocation_id = "aws_eip.nat-01.id"
 subnet_id = "aws_subnet.public_subnet.id"
-tags {
+tags = {
 Name = "nat-gateway-01"
 }
 }
 resource "aws_nat_gateway" "nat_gateway-02"{
 allocation_id = "aws_eip.nat-02.id"
 subnet_id = "aws_subnet.subnet-02.id"
-tags {
+tags = {
 Name = "nat-gateway-02"
   }
 }
@@ -137,11 +137,11 @@ resource "aws_route_table_association" "private-rt-ass-02" {
   route_table_id = aws_route_table.private-rt-02.id
   subnet_id      = aws_subnet.private-subnet-02.id
 }
-output "subnet-01" {
+output "public-subnet-01" {
   value = aws_subnet.public-subnet.id
 }
 
-output "subnet-02" {
+output "public-subnet-02" {
   value = aws_subnet.subnet-02.id
 }
 output "private-subnet-01" {
